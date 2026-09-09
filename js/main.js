@@ -72,14 +72,14 @@ var defaultProjects = [
 
 var defaultCompany = {
     intro_title: '关于异方',
-    intro: '异方建筑成立于上海，是一家致力于探索空间本质的设计事务所。我们相信建筑不仅是形式的创造，更是对场地、材料与人的关系的深层回应。',
+    intro: '异方建筑成立于深圳，是一家致力于探索空间本质的设计事务所。我们相信建筑不仅是形式的创造，更是对场地、材料与人的关系的深层回应。',
     intro_detail: '事务所的作品涵盖文化建筑、公共空间、办公及商业空间等多个领域，项目经验贯穿从概念设计到施工落地的全过程。',
     years: 15,
     projects_count: 80,
     awards_count: 25,
-    address: '上海市静安区南京西路1788号',
-    phone: '+86 21 6288 8800',
-    email: 'studio@yifang-arc.com'
+    address: '深圳市龙岗区坂田街道五和路三巷7号荣祥楼',
+    phone: '18680663205',
+    email: '597308071@qq.com'
 };
 
 function loadData() {
@@ -158,7 +158,11 @@ function renderCompany(data) {
     if (contactItems.length >= 3) {
         if (data.address) contactItems[0].querySelector('p').textContent = data.address;
         if (data.phone) contactItems[1].querySelector('p').textContent = data.phone;
-        if (data.email) contactItems[2].querySelector('a').textContent = data.email;
+        if (data.email) {
+            var emailLink = contactItems[2].querySelector('a');
+            emailLink.textContent = data.email;
+            emailLink.href = 'mailto:' + data.email;
+        }
     }
 }
 
