@@ -109,7 +109,8 @@ function renderProjects(projects) {
     var grid = document.getElementById('projectGrid');
     if (!grid) return;
 
-    var sorted = projects.slice().sort(function(a, b) {
+    var list = Array.isArray(projects) ? projects : ((projects && projects.list) || []);
+    var sorted = list.slice().sort(function(a, b) {
         return (a.order || 0) - (b.order || 0);
     });
 
